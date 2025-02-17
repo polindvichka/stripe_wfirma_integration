@@ -22,4 +22,4 @@ async function createInvoices() {
     }
 };
 
-// createInvoices();
+createInvoices();
