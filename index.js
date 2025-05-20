@@ -11,7 +11,7 @@ async function createInvoices() {
             let wfirmaContractorId = await findContractor(payment.metadata.email);
 
             if (!wfirmaContractorId) {
-                const patient = patients.find(p => p.email === payment.metadata.email);
+                const patient = patients.find(p => p.email.toLowerCase() === payment.metadata.email.toLowerCase());
                 if (!patient) continue;
                 wfirmaContractorId = await addContractor(patient.first_name, patient.last_name, patient.street_name, patient.house_number, patient.postal_code, patient.city, patient.email, patient.unit_id);
             }
@@ -22,4 +22,4 @@ async function createInvoices() {
     }
 };
 
-createInvoices();
+// createInvoices();
